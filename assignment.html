@@ -7614,23 +7614,12 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=765b33d2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Q1">Q1<a class="anchor-link" href="#Q1">¶</a></h3>
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=829d0187">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -7842,37 +7831,72 @@ Name: Price, dtype: float64
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=424208e6">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">### Q1 Written Answers</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=243fd8d8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=424208e6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Q2">Q2<a class="anchor-link" href="#Q2">¶</a></h3>
+<h3 id="Written-Answers">Written Answers<a class="anchor-link" href="#Written-Answers">¶</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=dffab6d1">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=665e8577">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Q1.2</p>
+<ul>
+<li>Without an intercept, each borough dummy coefficient equals the mean price for that borough.</li>
+</ul>
+<p>Q1.3</p>
+<ul>
+<li>With an intercept, one borough is left out. The intercept is the mean price for the left-out borough, and each dummy coefficient is the difference from that borough.</li>
+</ul>
+<p>Q1.6</p>
+<ul>
+<li>The Review Scores Rating coefficient changes because part 5 controls for Property Type in addition to Neighborhood.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=95f22300-0180-4ed2-be8f-ed56cf4cd36b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Q2.</strong> This question is a case study for linear models. The data are about car prices. In particular, they include:</p>
+<ul>
+<li><code>Price</code>, <code>Color</code>, <code>Seating_Capacity</code></li>
+<li><code>Body_Type</code>: crossover, hatchback, muv, sedan, suv</li>
+<li><code>Make</code>, <code>Make_Year</code>: The brand of car and year produced</li>
+<li><code>Mileage_Run</code>: The number of miles on the odometer</li>
+<li><code>Fuel_Type</code>: Diesel or gasoline/petrol</li>
+<li><code>Transmission</code>, <code>Transmission_Type</code>:  speeds and automatic/manual</li>
+</ul>
+<ol>
+<li>Load <code>cars_hw.csv</code>. These data were really dirty, and I've already cleaned them a significant amount in terms of missing values and other issues, but some issues remain (e.g. outliers, badly skewed variables that require a log or arcsinh transformation) Note this is different than normalizing: there is a text below that explains further. Clean the data however you think is most appropriate.</li>
+<li>Summarize the <code>Price</code> variable and create a kernel density plot. Use <code>.groupby()</code> and <code>.describe()</code> to summarize prices by brand (<code>Make</code>). Make a grouped kernel density plot by <code>Make</code>. Which car brands are the most expensive? What do prices look like in general?</li>
+<li>Split the data into an 80% training set and a 20% testing set.</li>
+<li>Make a model where you regress price on the numeric variables alone; what is the $R^2$ and <code>RMSE</code> on the training set and test set? Make a second model where, for the categorical variables, you regress price on a model comprised of one-hot encoded regressors/features alone (you can use <code>pd.get_dummies()</code>; be careful of the dummy variable trap); what is the $R^2$ and <code>RMSE</code> on the test set? Which model performs better on the test set? Make a third model that combines all the regressors from the previous two; what is the $R^2$ and <code>RMSE</code> on the test set? Does the joint model perform better or worse, and by home much?</li>
+<li>Use the <code>PolynomialFeatures</code> function from <code>sklearn</code> to expand the set of numerical variables you're using in the regression. As you increase the degree of the expansion, how do the $R^2$ and <code>RMSE</code> change? At what point does $R^2$ go negative on the test set? For your best model with expanded features, what is the $R^2$ and <code>RMSE</code>? How does it compare to your best model from part 4?</li>
+<li>For your best model so far, determine the predicted values for the test data and plot them against the true values. Do the predicted values and true values roughly line up along the diagonal, or not? Compute the residuals/errors for the test data and create a kernel density plot. Do the residuals look roughly bell-shaped around zero? Evaluate the strengths and weaknesses of your model.</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e0a5de82">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"cars_hw.csv"</span><span class="p">)</span>
@@ -8035,13 +8059,7 @@ min      1.880000e+05
 75%      8.830000e+05
 max      2.941000e+06
 Name: Price, dtype: float64
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>               count          mean           std        min        25%  \
+               count          mean           std        min        25%  \
 Make                                                                     
 Chevrolet        6.0  4.535000e+05  2.466064e+05   267000.0   288500.0   
 Datsun           3.0  2.896667e+05  1.050397e+04   279000.0   284500.0   
@@ -8151,22 +8169,63 @@ Q2.6
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c916b8bb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8a5a00cb">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Q3">Q3<a class="anchor-link" href="#Q3">¶</a></h3>
+<h3 id="Written-Answers">Written Answers<a class="anchor-link" href="#Written-Answers">¶</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=44c83795">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=db0b4b28">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Q2.4</p>
+<ul>
+<li>The joint model performs best.</li>
+</ul>
+<p>Q2.5</p>
+<ul>
+<li>The polynomial models performed best around degree 6. Higher degrees can reduce test performance.</li>
+</ul>
+<p>Q2.6</p>
+<ul>
+<li>The predicted-versus-actual plot shows a positive relationship, and the residuals are centered around 0.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b67478ac-ad78-4a44-9720-583c71b8da14">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p><strong>Q3.</strong></p>
+<ol>
+<li>Find a dataset on a topic you're interested in. Some easy options are data.gov, kaggle.com, and data.world.</li>
+<li>Clean the data and do some exploratory data analysis on key variables that interest you. Pick a particular target/outcome variable and features/predictors.</li>
+<li>Split the sample into an ~80% training set and a ~20% test set.</li>
+<li>Run a few regressions of your target/outcome variable on a variety of features/predictors. Compute the RMSE on the test set.</li>
+<li>Which model performed the best, and why?</li>
+<li>What did you learn?</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f6d36945">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"Electric_Vehicle_Population_Data.csv"</span><span class="p">)</span>
@@ -8412,63 +8471,40 @@ R-squared: 0.3277326458969885
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c044133e">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=95f22300-0180-4ed2-be8f-ed56cf4cd36b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=185a0417">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Q2.</strong> This question is a case study for linear models. The data are about car prices. In particular, they include:</p>
+<h3 id="Written-Answers">Written Answers<a class="anchor-link" href="#Written-Answers">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a35e10a2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Q3.1</p>
 <ul>
-<li><code>Price</code>, <code>Color</code>, <code>Seating_Capacity</code></li>
-<li><code>Body_Type</code>: crossover, hatchback, muv, sedan, suv</li>
-<li><code>Make</code>, <code>Make_Year</code>: The brand of car and year produced</li>
-<li><code>Mileage_Run</code>: The number of miles on the odometer</li>
-<li><code>Fuel_Type</code>: Diesel or gasoline/petrol</li>
-<li><code>Transmission</code>, <code>Transmission_Type</code>:  speeds and automatic/manual</li>
+<li>I used the Electric Vehicle Population Data dataset.</li>
 </ul>
-<ol>
-<li>Load <code>cars_hw.csv</code>. These data were really dirty, and I've already cleaned them a significant amount in terms of missing values and other issues, but some issues remain (e.g. outliers, badly skewed variables that require a log or arcsinh transformation) Note this is different than normalizing: there is a text below that explains further. Clean the data however you think is most appropriate.</li>
-<li>Summarize the <code>Price</code> variable and create a kernel density plot. Use <code>.groupby()</code> and <code>.describe()</code> to summarize prices by brand (<code>Make</code>). Make a grouped kernel density plot by <code>Make</code>. Which car brands are the most expensive? What do prices look like in general?</li>
-<li>Split the data into an 80% training set and a 20% testing set.</li>
-<li>Make a model where you regress price on the numeric variables alone; what is the $R^2$ and <code>RMSE</code> on the training set and test set? Make a second model where, for the categorical variables, you regress price on a model comprised of one-hot encoded regressors/features alone (you can use <code>pd.get_dummies()</code>; be careful of the dummy variable trap); what is the $R^2$ and <code>RMSE</code> on the test set? Which model performs better on the test set? Make a third model that combines all the regressors from the previous two; what is the $R^2$ and <code>RMSE</code> on the test set? Does the joint model perform better or worse, and by home much?</li>
-<li>Use the <code>PolynomialFeatures</code> function from <code>sklearn</code> to expand the set of numerical variables you're using in the regression. As you increase the degree of the expansion, how do the $R^2$ and <code>RMSE</code> change? At what point does $R^2$ go negative on the test set? For your best model with expanded features, what is the $R^2$ and <code>RMSE</code>? How does it compare to your best model from part 4?</li>
-<li>For your best model so far, determine the predicted values for the test data and plot them against the true values. Do the predicted values and true values roughly line up along the diagonal, or not? Compute the residuals/errors for the test data and create a kernel density plot. Do the residuals look roughly bell-shaped around zero? Evaluate the strengths and weaknesses of your model.</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b67478ac-ad78-4a44-9720-583c71b8da14">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Q3.</strong></p>
-<ol>
-<li>Find a dataset on a topic you're interested in. Some easy options are data.gov, kaggle.com, and data.world.</li>
-<li>Clean the data and do some exploratory data analysis on key variables that interest you. Pick a particular target/outcome variable and features/predictors.</li>
-<li>Split the sample into an ~80% training set and a ~20% test set.</li>
-<li>Run a few regressions of your target/outcome variable on a variety of features/predictors. Compute the RMSE on the test set.</li>
-<li>Which model performed the best, and why?</li>
-<li>What did you learn?</li>
-</ol>
+<p>Q3.2</p>
+<ul>
+<li>My dependent variable is Electric Range.</li>
+</ul>
+<p>Q3.4 / conclusion</p>
+<ul>
+<li>The joint model performed best.</li>
+</ul>
+<p>Q3.5 / Q3.6</p>
+<ul>
+<li>The categorical variables explain much more of the variation in Electric Range than Model Year alone, which shows that choosing strong predictors matters a lot for regression performance.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -8511,12 +8547,12 @@ could look like this:</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=505b7d47">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=505b7d47">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_model</span>
@@ -8524,29 +8560,11 @@ could look like this:</p>
     
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">.20</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span>
     
-<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span> <span class="c1"># Do not use fit_intercept = False if you have removed </span>
-<span class="mi">1</span> <span class="n">column</span> <span class="n">after</span> <span class="n">dummy</span> <span class="n">encoding</span>
+<span class="n">regr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span> <span class="c1"># Do not use fit_intercept = False if you have removed 1 column after dummy encoding</span>
 
 <span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
 <span class="n">predicted</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>
-  <span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[4]</span><span class="ansi-green-fg">, line 7</span>
-<span class="ansi-red-fg">    </span><span class="ansi-red-fg">1 column after dummy encoding</span>
-      ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
-</pre>
 </div>
 </div>
 </div>
